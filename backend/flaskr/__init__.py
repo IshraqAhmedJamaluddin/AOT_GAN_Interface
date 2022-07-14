@@ -49,3 +49,38 @@ def predict():
     except Exception  as e:
         print(e)
         return jsonify({'status': 'error'})
+
+
+@app.route('/predictk' , methods=['POST'])
+@cross_origin()
+def predictk():
+    try:
+        org = request.files['img']
+        path1 = '../src/dataset/Facades2/testA'
+        # for file_name in os.listdir(path1):
+        #     os.remove(os.path.join(path1, file_name))
+        choice = request.form['choice']
+        path2 = '../src/dataset/Facades2/testB'
+        # for file_name in os.listdir(path2):
+        #     os.remove(os.path.join(path2, file_name))
+        if choice == 'A2B':
+            org.save(os.path.join(path1, '1.jpg'))
+        else:
+            org.save(os.path.join(path2, '1.jpg'))
+        
+        
+
+        path3 = '../src'
+        path4 = '../src/outputs/Facades2'
+        p = subprocess.run(["python", os.path.join(path3, 'test_keras.py'), '--experiment_dir', path4])
+        
+        if choice == 'A2B':
+            result = os.path.join(path4, 'samples_testing', 'A2B', '1.jpg')
+        else:
+            result = os.path.join(path4, 'samples_testing', 'B2A', '1.jpg')
+        
+        encoded_imge = get_response_image(result)
+        return jsonify({'status': 'success', 'result': encoded_imge})
+    except Exception  as e:
+        print(e)
+        return jsonify({'status': 'error'})
