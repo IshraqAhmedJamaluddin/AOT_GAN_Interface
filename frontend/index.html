@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOT-GAN trial</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <form action="">
+        <div>
+            <label for="original_img">Select a clear image:</label>
+            <input type="file" id="original_img" name="original_img" accept="image/*">
+        </div>
+        <div>
+            <label for="mask_img">Select the mask image:</label>
+            <input type="file" id="mask_img" name="mask_img" accept="image/*">
+        </div>
+        <input type="submit">
+    </form>
+    <div>
+        <img id="preview_org" src="" height="200" alt="Original image preview...">
+        <img id="preview_mask" src="" height="200" alt="Mask preview...">
+        <img id="preview_masked" src="" height="200" alt="Masked image preview...">
+        <img id="preview_predicted" src="" height="200" alt="Predicted image preview...">
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
