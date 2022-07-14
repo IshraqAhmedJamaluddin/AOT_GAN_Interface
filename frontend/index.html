@@ -1,30 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AOT-GAN trial</title>
+    <title>Yomna Elmasry - Graduation Project Demo</title>
     <script src="jquery.min.js"></script>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <form action="">
-        <div>
-            <label for="original_img">Select a clear image:</label>
-            <input type="file" id="original_img" name="original_img" accept="image/*">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="pytorch col">
+                <h1>
+                    Aot-gan
+                </h1>
+                <form id="form1" action="">
+                    <div class="mt-5">
+                        <label for="original_img">Select a clear image:</label>
+                        <input type="file" id="original_img" name="original_img" accept="image/*">
+                    </div>
+                    <div class="mt-5">
+                        <label for="mask_img">Select the mask image:</label>
+                        <input type="file" id="mask_img" name="mask_img" accept="image/*">
+                    </div>
+                    <input class="mt-5" type="submit">
+                </form>
+                <div>
+                    <div id="preview_org">
+                        <h4 class="mt-5">Original Image</h4>
+                        <img class="mb-3" src="" height="200" alt="Original image preview...">
+                    </div>
+                    <div id="preview_mask">
+                        <h4 class="mt-5">Mask</h4>
+                        <img class="mb-3" src="" height="200" alt="Mask preview...">
+                    </div>
+                    <div id="preview_masked">
+                        <h4 class="mt-5">Masked Image</h4>
+                        <img class="mb-3" src="" height="200" alt="Masked image preview...">
+                    </div>
+                    <div id="preview_predicted">
+                        <h4 class="mt-5">Output Image</h4>
+                        <img class="mb-3" src="" height="200" alt="Predicted image preview...">
+                    </div>
+                    <div id="loading" class="ml-5 svg-loader">
+                        <svg class="svg-container" height="100" width="100" viewBox="0 0 100 100">
+                            <circle class="loader-svg bg" cx="50" cy="50" r="45"></circle>
+                            <circle class="loader-svg animate" cx="50" cy="50" r="45"></circle>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="keras col">
+                <h1>
+                    Cycle-gan
+                </h1>
+                <form id="form2" action="">
+                    <div class="mt-5">
+                        <label for="original_img_k">Select an image:</label>
+                        <input type="file" id="original_img_k" name="original_img_k" accept="image/*">
+                    </div>
+                    <div class="mt-5">
+                        <label for="AB">Specify whether A2B or B2A:</label>
+                        <input type="radio" id="A2B" name="AB" value="A2B">
+                        <label for="A2B">A2B</label>
+                        <input type="radio" id="B2A" name="AB" value="B2A">
+                        <label for="B2A">B2A</label>
+                    </div>
+                    <input class="mt-5" type="submit">
+                </form>
+                <div>
+                    <div id="preview_org_k">
+                        <h4 class="mt-5">Original Image</h4>
+                        <img class="mb-3" src="" height="200" alt="Original image preview...">
+                    </div>
+                    <div id="preview_predicted_k">
+                        <h4 class="mt-5">Output Image</h4>
+                        <img class="mb-3" src="" height="200" alt="Predicted image preview...">
+                    </div>
+                    <div id="loading_k" class="ml-5 svg-loader">
+                        <svg class="svg-container" height="100" width="100" viewBox="0 0 100 100">
+                            <circle class="loader-svg bg" cx="50" cy="50" r="45"></circle>
+                            <circle class="loader-svg animate" cx="50" cy="50" r="45"></circle>
+                        </svg>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <label for="mask_img">Select the mask image:</label>
-            <input type="file" id="mask_img" name="mask_img" accept="image/*">
-        </div>
-        <input type="submit">
-    </form>
-    <div>
-        <img id="preview_org" src="" height="200" alt="Original image preview...">
-        <img id="preview_mask" src="" height="200" alt="Mask preview...">
-        <img id="preview_masked" src="" height="200" alt="Masked image preview...">
-        <img id="preview_predicted" src="" height="200" alt="Predicted image preview...">
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

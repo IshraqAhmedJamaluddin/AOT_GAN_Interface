@@ -10,9 +10,15 @@
 
 - First, download the pretrained model and put it in /src/experiments/aotgan_clear_pconv512
 
+- Download the checkpoints and put them in src/outputs/Facades2/checkpoints
+
 - update the model name in /backend/flaskr/__init__.py if needed (~ line 42)
 
+- Create a virtual environment
+
 - Make sure all the requirements are installed
+
+    `pip install -r requirements.txt`
 
 - Then add the location to your environment variable:
 
