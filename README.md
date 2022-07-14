@@ -1,34 +1,18 @@
-# Arabic OCR: API
+# AOT-GAN Interface
 
-This project is a part of a Graduation Project by: Omar Farid, Ishraq Ahmed, Mazen Mohamed, Hossam Gomaa
 
 ## Prerequisites
 
 - [Python](https://www.python.org/downloads/)
+- [Flask](https://flask.palletsprojects.com/en/2.1.x/)
 
 ## How to run
 
-- First, download the easyOCR zip from [here](https://drive.google.com/file/d/1dPQh64ZbqnFD0e7J-blm5DkM0ggDjIK0/view?usp=sharing)
+- First, download the pretrained model and put it in /src/experiments/aotgan_clear_pconv512
 
-- Extract it so it's under the big folder.
+- update the model name in /backend/flaskr/__init__.py if needed (~ line 42)
 
-- Then install the virtualenv package:
-
-    `pip install virtualenv`
-
-- Then create your new environment:
-
-    `virtualenv GP`
-
-- Then activate the virtual environment
-
-    Mac OS/Linux: `source GP/bin/activate`
-
-    Windows: `GP\Scripts\activate`
-
-- Then install the requirements:
-
-    `pip install -r requirements.txt`
+- Make sure all the requirements are installed
 
 - Then add the location to your environment variable:
 
@@ -40,27 +24,6 @@ This project is a part of a Graduation Project by: Omar Farid, Ishraq Ahmed, Maz
 
     `flask run --host=0.0.0.0 --port=5000`
         
-    to run the application
+    to run the api
 
-## API Endpoints
-
-There's only one end point:
-
-- `/predict`:
-    
-    Input: file with the key `image`
-
-    ```
-    {"image": someKindOfAnImageFile}
-    ```
-    
-    Output:
-
-    ```
-    {"status": "success", "text": "predictedText"}
-    ```
-    or
-
-    ```
-    {"status": "error"}
-    ```
+- Open frontend/index.html and Voila!
